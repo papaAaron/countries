@@ -39,17 +39,18 @@
 
           <button type="button" style="color:firebrick " class="btn btn-danger" mat-icon-button (click)="deleteValeur(row)"><i
               class="fa fa-times mat-icon"></i></button>
-
-
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="redirectNewValeurPage(row)" class='tr-hover-class'></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)"  class='tr-hover-class'></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 
-    <!-- <mat-paginator [length]="100"
+    <!-- 
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showSelectedCountry(row)" class='tr-hover-class'></tr>
+
+      <mat-paginator [length]="100"   (click)="openDialog(row[0],$event);
                     [pageSize]="10"
                     [pageSizeOptions]="[5, 10, 25, 100]">
      </mat-paginator> -->
@@ -57,125 +58,5 @@
 
   </div>
 
-  <div class="row" style=" width: 30% ; clear: right">
-    <form novalidate [formGroup]="valeurFormShow">
-      <fieldset [disabled]="true">
-        <table>
-
-          <tbody>
-
-
-          <tr>
-            <td class="tablebody-tr">Nom:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" formControlName="name">
-            </td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">No:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="no" formControlName="valeurnumero"></td>
-          </tr>
-          <tr>
-            <td class="tablebody-tr">Beneficiaire:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="beneficiaire"
-                       formControlName="valeurbenefiaire"></td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Montant:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="montant" formControlName="valeurmontant">
-            </td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">No compte:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="valeurnumerocompte"
-                       formControlName="valeurnumerocompte"></td>
-          </tr>
-
-
-          <tr>
-            <td class="tablebody-tr">RIB:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="RIB" formControlName="valeurrib"></td>
-          </tr>
-          <tr>
-            <td class="tablebody-tr">Nom:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="nom" formControlName="valeurnom"></td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Status:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="Status" formControlName="valeurstatus">
-            </td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Solde veille:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="Solde veille"
-                       formControlName="valeursoldeveille"></td>
-          </tr>
-
-
-          <tr>
-            <td class="tablebody-tr">Ecart:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="ecart" formControlName="valeurecart"></td>
-          </tr>
-
-
-          <tr>
-            <td class="tablebody-tr">Date d'emission:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="date d'emission"
-                       formControlName="valeurdateemission"></td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Code banque:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="code banque"
-                       formControlName="valeurcodebanque"></td>
-          </tr>
-
-
-          <tr>
-            <td class="tablebody-tr">Agence:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="agence" formControlName="valeuragence">
-            </td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Date de rejet:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="date de rejet"
-                       formControlName="valeurdaterejet"></td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Date de regularisation:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="date de regularisation"
-                       formControlName="valeurdateregularisation"></td>
-          </tr>
-
-          <tr>
-            <td class="tablebody-tr">Adresse client:</td>
-            <td><input class="tablebody-td" matInput type="text" placeholder="addresse client"
-                       formControlName="valeuradresseclient"></td>
-          </tr>
-          <tr>
-            <td class="tablebody-tr">Unite:</td>
-            <td class="tablebody-tr"><input class="tablebody-td" matInput type="text" placeholder="Unite"
-                                            formControlName="valeurunite"></td>
-          </tr>
-
-          </tbody>
-
-        </table>
-
-      </fieldset>
-      <!--         <button type="submit" class="btn btn-primary"  [disabled]="!valeurForm.valid" >Submit</button>
-
-      <pre>{{valeurForm.value | json}}</pre>
-
-       -->
-
-    </form>
-  </div>
 
 </div>

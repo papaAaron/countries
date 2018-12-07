@@ -2,7 +2,9 @@ import { Country } from './../Country';
 import { CountryService } from './../country.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
+import { CountryDetailsComponent } from '../country-details/country-details.component';
+
 
 @Component({
   selector: 'app-countries',
@@ -13,9 +15,14 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 export class CountriesComponent implements OnInit {
 
   private countries: Country[];
-  private selectedCountry : Country;
+  private selectedCountry: Country;
+  name: String;
+  country: Country;
+  imageToShow: any;
+  isImageLoading: Boolean;
 
-  constructor(private router: Router, private countryService: CountryService) {
+
+  constructor(private router: Router, private countryService: CountryService, public dialog: MatDialog) {
   }
 
 
@@ -48,22 +55,69 @@ export class CountriesComponent implements OnInit {
         console.log(err);
       });
   }
-  showSelectedCountry(row) {
-    console.log(row);
-    this.selectedCountry= row;
-    // this.router.navigate(['countries#country-details']);
+  /*
+    showSelectedCountry(row) {
+      console.log(row);
+      this.selectedCountry = row;
+      if (row) {
+        this.router.navigate(['countries/country/details', this.selectedCountry.name]);
+  
+      }
+    }
+  */
 
-    this.router.navigate(['/countries/country-details', this.selectedCountry.name]);
-    
-  }
-  redirectNewValeurPage(row) {
-    console.log(row);
-    this.selectedCountry= row;
-    if (row){
-      this.router.navigate(['countries/country/details',this.selectedCountry.name]);
 
+  openDialog(row): void {
+    console.log(row);
+    this.selectedCountry = row;
+    if (row) {
+
+      const dialogRef = this.dialog.open(CountryDetailsComponent, {
+        width: '800px', maxWidth: '100%',
+
+        data: { country: this.selectedCountry, imageUrl: this.selectedCountry.flag }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.country = result;
+      });
     }
   }
-  }
-  
-
+  /* loadFlag(image: Blob) {
+     let reader = new FileReader();
+     reader.addEventListener('load', () => {
+       this.imageToShow = reader.result;
+     }, false);
+ 
+     if (image) {
+       reader.readAsDataURL(image);
+     }
+   }
+   getImageFromService() {
+     this.isImageLoading = true;
+     this.countryService.getImage(this.selectedCountry.flag ).subscribe(data => {
+       this.loadFlag(data);
+        this.isImageLoading = false;
+     }, error => {
+       this.isImageLoading = false;
+       console.log(error);
+     });
+   }
+ 
+ }
+ 
+ 
+ 
+ /*
+ openDialog(rowId, event): void {
+   const dialogRef = this.dialog.open(ModifierVillesModal, {
+       width: '320px',
+       data: {oldVilleId: rowId, oldVilleName: this.getRowData(event.target)[1]}
+   });
+ 
+   dialogRef.afterClosed().subscribe(result => {
+       console.log('The dialog was closed');
+       this.onModifierVille(result)
+   });
+ }*/
+}

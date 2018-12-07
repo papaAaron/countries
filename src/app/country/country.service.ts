@@ -11,15 +11,16 @@ export class CountryService {
 
   private apiUrlgetByName = 'https://restcountries.eu/rest/v2/name';
 
- 
+
   constructor(private http: HttpClient) {
   }
- 
-  findAll(): Observable<Country[]>  {
+
+  findAll(): Observable<Country[]> {
     return this.http.get<Country[]>(this.apiUrlgetAll);
   }
- 
+
   findByName(name: String): Observable<Country> {
-    return this.http.get<Country>(this.apiUrlgetByName); 
-   }
+    return this.http.get<Country>(this.apiUrlgetByName);
+  }
+
 }
