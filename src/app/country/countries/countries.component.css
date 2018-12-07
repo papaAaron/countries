@@ -1,0 +1,12 @@
+/* custom style  */
+table {
+    width: 100%;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  tr.tr-hover-class:hover {
+    background: #edf6ff !important;
+  }
+  

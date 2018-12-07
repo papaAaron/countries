@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-details',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country-details.component.css']
 })
 export class CountryDetailsComponent implements OnInit {
+name: String;
+  private sub: any;
+  
+  constructor(private route: ActivatedRoute) {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+ngOnInit() {
+ /*this.sub = this.route.params.subscribe(params => {
+    this.name = params['name'];
+    console.log(name);
+  });*/
+}
 }
