@@ -1,62 +1,34 @@
-<div >
-  <div class="mat-elevation-z8" style="width: 80% ; margin-left: auto ;margin-right: auto ; margin-top: 5%  ">
-    <mat-form-field style="margin-left: 20px">
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+<div>
+  <div class="mat-elevation-z8" style="width: 80% ; margin-left: auto ;margin-right: auto ; margin-top: 5% ; padding-top: 10px ">
+    <i class="fa fa-search" style="margin-left: 10px"></i> <mat-form-field style="margin-left: 20px">  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
     </mat-form-field>
-
-
-    <table mat-table [dataSource]="dataSource" matSort  style="width: 100% ">
-
+    <table mat-table [dataSource]="dataSource" matSort style="width: 100% ">
       <!-- Position Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
         <td mat-cell *matCellDef="let element"> {{element.name}}</td>
-      </ng-container>
-
-      <!-- Name Column -->
+      </ng-container> <!-- Name Column -->
       <ng-container matColumnDef="capital">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital</th>
         <td mat-cell *matCellDef="let element"> {{element.capital}}</td>
-      </ng-container>
-
-      <!-- Weight Column -->
+      </ng-container> <!-- Weight Column -->
       <ng-container matColumnDef="region">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>region</th>
         <td mat-cell *matCellDef="let element" class='tr-hover-class'> {{element.region}}</td>
       </ng-container>
-
       <ng-container matColumnDef="alpha2Code">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> alpha2Code</th>
         <td mat-cell *matCellDef="let element" class='tr-hover-class'> {{element.alpha2Code}}</td>
       </ng-container>
-
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
-        <td mat-cell *matCellDef="let row" class='tr-hover-class'>
-          <button type="button" style="color:darkgreen " class="btn btn-success" mat-icon-button (click)="editValeurPage(row)">
-
-            <i class="fa fa-pencil mat-icon"></i></button>
-
-          <button type="button" style="color:firebrick " class="btn btn-danger" mat-icon-button (click)="deleteValeur(row)"><i
-              class="fa fa-times mat-icon"></i></button>
-        </td>
+        <td mat-cell *matCellDef="let row" class='tr-hover-class'> <button type="button" style="color:rgb(17, 143, 216) " class=" btn-succes"
+            mat-icon-button (click)="openDialog(row)"> <i class="fa fa-eye"></i></button>         </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)"  class='tr-hover-class'></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)" class='tr-hover-class'></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
-
-    <!-- 
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showSelectedCountry(row)" class='tr-hover-class'></tr>
-
-      <mat-paginator [length]="100"   (click)="openDialog(row[0],$event);
-                    [pageSize]="10"
-                    [pageSizeOptions]="[5, 10, 25, 100]">
-     </mat-paginator> -->
-
-
+    <!--             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showSelectedCountry(row)" class='tr-hover-class'></tr>       <mat-paginator [length]="100"   (click)="openDialog(row[0],$event);                     [pageSize]="10"                     [pageSizeOptions]="[5, 10, 25, 100]">      </mat-paginator> -->
   </div>
-
-
 </div>

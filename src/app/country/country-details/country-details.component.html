@@ -1,6 +1,6 @@
 <div class="row" style=" width: 100% ">
   <div class="row" style=" width: 25% ; height: auto ; margin-left: auto ; margin-right: auto">
-    <img [src]="data.imageUrl" style="width: 450px ; max-width: 100%; height: auto ; margin-left: auto ; margin-right: auto"></div>
+    <img [src]="data.imageUrl" class="center-img" ></div>
 
 
   <div>
@@ -10,22 +10,31 @@
         <table>
 
           <tbody>
-
+            
 
             <tr>
               <td class="tablebody-tr">Name:</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.name">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.name">
+              </td>
+            </tr>
+            <tr>
+              <td class="tablebody-tr">Demonym:</td>
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.demonym">
               </td>
             </tr>
             <tr>
               <td class="tablebody-tr">Capital:</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.capital">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.capital">
               </td>
             </tr>
-
+            <tr>
+              <td class="tablebody-tr">Area:</td>
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.are">
+              </td>
+            </tr>
             <tr>
               <td class="tablebody-tr">Telephone code:</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.callingCodes">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.callingCodes">
               </td>
             </tr>
            
@@ -38,28 +47,28 @@
 
             <tr>
               <td class="tablebody-tr">Geographic situation:</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.subregion ">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.subregion ">
               </td>
             </tr>
             <tr>
               <td class="tablebody-tr">Population(Habitants):</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.population">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.population">
               </td>
             </tr>
             <tr>
               <td class="tablebody-tr">Langue(s):</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.languages[0].name">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.languages[0].name + ' | '+data.country.languages[0].nativeName ">
               </td>
             </tr>
             <tr>
                 <td class="tablebody-tr">Currencies(s):</td>
-                <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.currencies[0].code + ', '+ data.country.currencies[0].name">
+                <td><input class="tablebody-td" matInput type="text"  [value]="data.country.currencies[0].code + ', '+ data.country.currencies[0].name">
                 </td>
               </tr>
             
             <tr>
               <td class="tablebody-tr">Code:</td>
-              <td><input class="tablebody-td" matInput type="text" placeholder="Valeur type" [value]="data.country.alpha2Code + ', '+ data.country.alpha3Code">
+              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.alpha2Code + ', '+ data.country.alpha3Code">
               </td>
             </tr>
           </tbody>
