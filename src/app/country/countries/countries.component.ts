@@ -55,25 +55,13 @@ export class CountriesComponent implements OnInit {
         console.log(err);
       });
   }
-  /*
-    showSelectedCountry(row) {
-      console.log(row);
-      this.selectedCountry = row;
-      if (row) {
-        this.router.navigate(['countries/country/details', this.selectedCountry.name]);
-  
-      }
-    }
-  */
-
-
   openDialog(row): void {
     console.log(row);
     this.selectedCountry = row;
     if (row) {
 
       const dialogRef = this.dialog.open(CountryDetailsComponent, {
-        width: '800px', maxWidth: '100%',
+       maxWidth: '100%',
 
         data: { country: this.selectedCountry, imageUrl: this.selectedCountry.flag }
       });
@@ -83,41 +71,4 @@ export class CountriesComponent implements OnInit {
       });
     }
   }
-  /* loadFlag(image: Blob) {
-     let reader = new FileReader();
-     reader.addEventListener('load', () => {
-       this.imageToShow = reader.result;
-     }, false);
- 
-     if (image) {
-       reader.readAsDataURL(image);
-     }
-   }
-   getImageFromService() {
-     this.isImageLoading = true;
-     this.countryService.getImage(this.selectedCountry.flag ).subscribe(data => {
-       this.loadFlag(data);
-        this.isImageLoading = false;
-     }, error => {
-       this.isImageLoading = false;
-       console.log(error);
-     });
-   }
- 
- }
- 
- 
- 
- /*
- openDialog(rowId, event): void {
-   const dialogRef = this.dialog.open(ModifierVillesModal, {
-       width: '320px',
-       data: {oldVilleId: rowId, oldVilleName: this.getRowData(event.target)[1]}
-   });
- 
-   dialogRef.afterClosed().subscribe(result => {
-       console.log('The dialog was closed');
-       this.onModifierVille(result)
-   });
- }*/
 }

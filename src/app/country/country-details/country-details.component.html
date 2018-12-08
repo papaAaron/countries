@@ -1,83 +1,113 @@
 <div class="row" style=" width: 100% ">
-  <div class="row" style=" width: 25% ; height: auto ; margin-left: auto ; margin-right: auto">
-    <img [src]="data.imageUrl" class="center-img" ></div>
+  
+    <div class="row"  style=" width: 100% ; height: auto ">
+        <img [src]="data.imageUrl" style=" width: 250px ; max-width: 100% ; margin:  0 auto">
+      </div>
+    
+  <div style="margin:0 auto; width: 100%">
 
 
-  <div>
-    <form novalidate [formGroup]="countryFormShow">
+      <div class="row">
+          <div > Name:</div>
+            <div ><input class="tablebody-td" matInput type="text" [value]="data.country.name">
+          </div>
+        </div>
+
+        <div class="row">
+            <div >Code:</div>
+              <div ><input class="tablebody-td" matInput type="text" [value]="data.country.alpha2Code + ', '+ data.country.alpha3Code">
+              </div>
+        </div>
+
+
+        
+    <form>
       <fieldset [disabled]="true">
 
-        <table>
-
+        <table style="width:100% ; margin: 0 auto ; float: right; " >
           <tbody>
-            
 
             <tr>
               <td class="tablebody-tr">Name:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.name">
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.name">
               </td>
             </tr>
+
+            <tr>
+              <td class="tablebody-tr">Code:</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.alpha2Code + ', '+ data.country.alpha3Code">
+              </td>
+            </tr>
+
             <tr>
               <td class="tablebody-tr">Demonym:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.demonym">
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.demonym">
               </td>
             </tr>
             <tr>
               <td class="tablebody-tr">Capital:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.capital">
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.capital">
               </td>
             </tr>
+
+            <tr>
+              <td class="tablebody-tr">Geographic situation:</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.subregion ">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td class="tablebody-tr">Langue(s):</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.languages[0].name + ' | '+data.country.languages[0].nativeName ">
+              </td>
+            </tr>
+
+            <tr>
+              <td class="tablebody-tr">Population:</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.population">
+              </td>
+            </tr>
+
             <tr>
               <td class="tablebody-tr">Area:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.are">
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.area">
               </td>
             </tr>
             <tr>
-              <td class="tablebody-tr">Telephone code:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.callingCodes">
+              <td class="tablebody-tr">Currencies(s):</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.currencies[0].code + ', '+ data.country.currencies[0].name">
               </td>
             </tr>
-           
             <tr>
-              <td class="tablebody-tr" >Borders:</td>
+              <td class="tablebody-tr">Calling code:</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.callingCodes">
+              </td>
+            </tr>
+
+            <tr>
+              <td class="tablebody-tr">Borders:</td>
               <td>
                 <span *ngFor="let arr of data.country.borders">{{arr}} </span>
               </td>
             </tr>
 
             <tr>
-              <td class="tablebody-tr">Geographic situation:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.subregion ">
+              <td class="tablebody-tr">regionalBlocs:</td>
+              <td><input class="tablebody-td" matInput type="text" [value]="data.country.regionalBlocs[0].acronym +', '+data.country.regionalBlocs[0].name">
               </td>
             </tr>
-            <tr>
-              <td class="tablebody-tr">Population(Habitants):</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.population">
-              </td>
-            </tr>
-            <tr>
-              <td class="tablebody-tr">Langue(s):</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.languages[0].name + ' | '+data.country.languages[0].nativeName ">
-              </td>
-            </tr>
-            <tr>
-                <td class="tablebody-tr">Currencies(s):</td>
-                <td><input class="tablebody-td" matInput type="text"  [value]="data.country.currencies[0].code + ', '+ data.country.currencies[0].name">
-                </td>
-              </tr>
-            
-            <tr>
-              <td class="tablebody-tr">Code:</td>
-              <td><input class="tablebody-td" matInput type="text"  [value]="data.country.alpha2Code + ', '+ data.country.alpha3Code">
-              </td>
-            </tr>
-          </tbody>
 
+            <tr>
+              <td class="tablebody-tr">Timezone(s):</td>
+              <td> <span class="tablebody-td" *ngFor="let arr of data.country.timezones">{{arr}} </span>
+              </td>
+            </tr>
+
+          </tbody>
         </table>
 
       </fieldset>
-
-
     </form>
   </div>
 
