@@ -1,6 +1,12 @@
 # Countries
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+## Running the Project
+
+Open a command prompt in the project's root directory
+
+Type: `npm install` This installs the dependencies as defined in the package.json file.
+
 
 ## Development server
 
