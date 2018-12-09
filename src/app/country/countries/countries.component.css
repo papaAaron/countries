@@ -1,7 +1,8 @@
 /* custom style  */
-table {
+.table {
     width: 100%;
   }
+
   th.mat-sort-header-sorted {
     color: black;
   }
@@ -9,4 +10,4 @@ table {
   tr.tr-hover-class:hover {
     background: #edf6ff !important;
   }
-  
+

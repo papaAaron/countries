@@ -2,6 +2,7 @@ import { Country } from './Country';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,11 +16,11 @@ export class CountryService {
   constructor(private http: HttpClient) {
   }
 
-  findAll(): Observable<Country[]> {
+  findAllCountries(): Observable<Country[]> {
     return this.http.get<Country[]>(this.apiUrlgetAll);
   }
 
-  findByName(name: String): Observable<Country> {
+  findCountryByName(name: String): Observable<any> {
     return this.http.get<Country>(this.apiUrlgetByName);
   }
 

@@ -1,8 +1,9 @@
+<div style="margin: 0 auto ; width: 250px">  Rest countries  </div>
 <div>
   <div class="mat-elevation-z8" style="width: 80% ; margin-left: auto ;margin-right: auto ; margin-top: 5% ; padding-top: 10px ">
     <i class="fa fa-search" style="margin-left: 10px"></i> <mat-form-field style="margin-left: 20px">  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource" matSort style="width: 100% ">
+    <table mat-table [dataSource]="dataSource" matSort  style=" width: 100%;" >
       <!-- Position Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
@@ -32,3 +33,5 @@
     <!--             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showSelectedCountry(row)" class='tr-hover-class'></tr>       <mat-paginator [length]="100"   (click)="openDialog(row[0],$event);                     [pageSize]="10"                     [pageSizeOptions]="[5, 10, 25, 100]">      </mat-paginator> -->
   </div>
 </div>
+<div style="margin: 25px auto ; width: 300px; font-style: italic"> by Aaron Miezan</div>
+

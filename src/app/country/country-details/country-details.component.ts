@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { Country } from '../Country';
 
 
@@ -16,14 +15,11 @@ export interface DialogData {
   styleUrls: ['./country-details.component.css']
 })
 export class CountryDetailsComponent {
-  country: Country;
-  imageUrl: String;
-  constructor( public dialog: MatDialog, public dialogRef: MatDialogRef<CountryDetailsComponent>,
+
+  constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+
 
 }
 

@@ -18,11 +18,9 @@ export class CountriesComponent implements OnInit {
   private selectedCountry: Country;
   name: String;
   country: Country;
-  imageToShow: any;
-  isImageLoading: Boolean;
 
 
-  constructor(private router: Router, private countryService: CountryService, public dialog: MatDialog) {
+  constructor( private countryService: CountryService, public dialog: MatDialog) {
   }
 
 
@@ -42,7 +40,7 @@ export class CountriesComponent implements OnInit {
   // this function return countries
   getAllCountries() {
     console.log('---------- loading countries ');
-    this.countryService.findAll().subscribe(
+    this.countryService.findAllCountries().subscribe(
       countries => {
         this.countries = countries;
         this.dataSource = new MatTableDataSource<Country>(countries);
@@ -59,16 +57,18 @@ export class CountriesComponent implements OnInit {
     console.log(row);
     this.selectedCountry = row;
     if (row) {
-
-      const dialogRef = this.dialog.open(CountryDetailsComponent, {
-       maxWidth: '100%',
-
-        data: { country: this.selectedCountry, imageUrl: this.selectedCountry.flag }
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        this.country = result;
-      });
+      this.callCountryDetail();
     }
+  }
+  callCountryDetail() {
+    const dialogRef = this.dialog.open(CountryDetailsComponent, {
+      maxWidth: '100%',
+
+      data: { country: this.selectedCountry, imageUrl: this.selectedCountry.flag }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.country = result;
+    });
   }
 }
