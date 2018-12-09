@@ -1,7 +1,6 @@
 import { Country } from './../Country';
 import { CountryService } from './../country.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { CountryDetailsComponent } from '../country-details/country-details.component';
 

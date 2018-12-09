@@ -9,9 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CountryService {
 
   private apiUrlgetAll = 'https://restcountries.eu/rest/v2/all';
-
   private apiUrlgetByName = 'https://restcountries.eu/rest/v2/name';
-
 
   constructor(private http: HttpClient) {
   }
